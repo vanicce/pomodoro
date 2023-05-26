@@ -1,8 +1,8 @@
 const minutes = document.getElementById("minutes")
-minutes.textContent = "25"
+minutes.textContent = "24"
 
 const seconds = document.getElementById("seconds")
-seconds.textContent = "00"
+seconds.textContent = 00
 
 const buttonStart = document.getElementById("buttonStart")
 buttonStart.textContent = "start"
@@ -41,8 +41,6 @@ const start = () => {
     let remaingMinutes = minutes.textContent
     let remaingSeconds = seconds.textContent
 
-    console.log(remaingSeconds);
-
     countdownInterval = setInterval(() => {
         if (remaingSeconds === 0) {
             remaingSeconds = 59
@@ -72,7 +70,6 @@ const start = () => {
     const buttonPause = document.getElementById("buttonPause")
     buttonPause.textContent = "pause"
     buttonPause.style.display = 'block'
-
 }
 
 const pause = () => {
