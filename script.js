@@ -8,7 +8,7 @@ const buttonStart = document.getElementById("buttonStart")
 buttonStart.textContent = "start"
 
 const start = () => {
-    let remaingMinutes = 9
+    let remaingMinutes = 0
     let remaingSeconds = 15
 
     if(buttonStart.textContent === "start"){
@@ -37,6 +37,7 @@ const start = () => {
 
             if (remaingMinutes === 0 && remaingSeconds === 0) {
                 clearInterval(countdownInterval)
+                buttonStart.textContent = "start"
             }
         }, 1000)
         buttonStart.textContent = "restart"
