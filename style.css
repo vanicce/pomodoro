@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital@1&display=swap');
 
 :root {
-    background-image: url(vrju1i20b2m91.jpg);
+    background-image: url(background.jpg);
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -48,4 +48,13 @@ button {
     font-family: 'Aoboshi One', serif;
     color: whitesmoke;
     font-size: 7.5rem;
+}
+
+#text {
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+    font-size: 2.125rem;
+    font-family: 'Aoboshi One', serif;
+    color: whitesmoke;
 }
