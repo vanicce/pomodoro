@@ -10,63 +10,72 @@ buttonStart.textContent = "start"
 const text = document.getElementById("text")
 text.textContent = "Time to focus!"
 
+let countdownInterval
+
 const pomodoro = () => {
-    let remaingMinutes = "25"
+    let remaingMinutes = "24"
+    let remaingSeconds = "59"
     minutes.textContent = remaingMinutes
+    seconds.textContent = remaingSeconds
     text.textContent = "Time to focus!"
 }
 
 const shortBrake = () => {
-    let remaingMinutes = "05"
+    let remaingMinutes = "04"
+    let remaingSeconds = "59"
     minutes.textContent = remaingMinutes
+    seconds.textContent = remaingSeconds
     text.textContent = "Time for a Brake!"
 }
 
 const longBrake = () => {
-    let remaingMinutes = "15"
+    let remaingMinutes = "14"
+    let remaingSeconds = "59"
     minutes.textContent = remaingMinutes
+    seconds.textContent = remaingSeconds
     text.textContent = "Time for a Brake!"
 }
 
 const start = () => {
 
     let remaingMinutes = minutes.textContent
-    let remaingSeconds = 0
+    let remaingSeconds = seconds.textContent
 
     console.log(remaingSeconds);
 
-    if(buttonStart.textContent === "start"){
+    countdownInterval = setInterval(() => {
+        if (remaingSeconds === 0) {
+            remaingSeconds = 59
+            remaingMinutes--
+        } else {
+            remaingSeconds--
+        }
 
-        buttonStart.textContent = 'restart'
+        if (remaingSeconds >= 10) {
+            seconds.textContent = remaingSeconds
+        } else {
+            seconds.textContent = '0' + remaingSeconds
+        }
 
-        const countdownInterval = setInterval(() => {
-            if (remaingSeconds === 0) {
-                remaingSeconds = 59
-                remaingMinutes--
-            } else {
-                remaingSeconds--
-            }
-            
-            if (remaingSeconds >= 10){
-                seconds.textContent = remaingSeconds
-            } else {
-                seconds.textContent = '0' + remaingSeconds
-            }
-            
-            if (remaingMinutes >= 10){
-                minutes.textContent = remaingMinutes
-            } else {
-                minutes.textContent = '0' + remaingMinutes
-            }
+        if (remaingMinutes >= 10) {
+            minutes.textContent = remaingMinutes
+        } else {
+            minutes.textContent = '0' + remaingMinutes
+        }
 
-            if (remaingMinutes === 0 && remaingSeconds === 0) {
-                clearInterval(countdownInterval)
-                buttonStart.textContent = "start"
-            }    
-        }, 1000)
-    }
+        if (remaingMinutes === 0 && remaingSeconds === 0) {
+            clearInterval(countdownInterval)
+            buttonStart.textContent = "start"
+        }
+    }, 1000)
+
+    const buttonPause = document.getElementById("buttonPause")
+    buttonPause.textContent = "pause"
+    buttonPause.style.display = 'block'
+
 }
 
-const restart = () => {
-    
+const pause = () => {
+    console.log('aqui');
+    clearInterval(countdownInterval)
 }

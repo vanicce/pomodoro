@@ -41,6 +41,7 @@ button {
     margin: 0 5px;
 }
 
+
 .timer {
     display: flex;
     justify-content: center;
@@ -48,6 +49,10 @@ button {
     font-family: 'Aoboshi One', serif;
     color: whitesmoke;
     font-size: 7.5rem;
+}
+
+#buttonPause {
+    display: none;
 }
 
 #text {
