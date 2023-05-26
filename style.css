@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Aoboshi+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital@1&display=swap');
+
+:root {
+    background-image: url(vrju1i20b2m91.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.buttons {
+}
+
+.button2 {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    border-radius: 450px;
+    padding: 0.4rem 0.1rem;   
+    width: 155px;
+    font-family: 'Aoboshi One', serif;
+    cursor: pointer;
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+    border: none;
+    margin: 0 5px;
+}
+
+.timer {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    font-family: 'Aoboshi One', serif;
+    color: whitesmoke;
+    font-size: 7.5rem;
+}
