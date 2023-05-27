@@ -1,8 +1,8 @@
 const minutes = document.getElementById("minutes")
-minutes.textContent = "24"
+minutes.textContent = "25"
 
 const seconds = document.getElementById("seconds")
-seconds.textContent = 00
+seconds.textContent = "00"
 
 const buttonStart = document.getElementById("buttonStart")
 buttonStart.textContent = "start"
@@ -13,26 +13,21 @@ text.textContent = "Time to focus!"
 let countdownInterval
 
 const pomodoro = () => {
-    let remaingMinutes = "24"
-    let remaingSeconds = "59"
+    let remaingMinutes = "25"
     minutes.textContent = remaingMinutes
     seconds.textContent = remaingSeconds
     text.textContent = "Time to focus!"
 }
 
 const shortBrake = () => {
-    let remaingMinutes = "04"
-    let remaingSeconds = "59"
+    let remaingMinutes = "05"
     minutes.textContent = remaingMinutes
-    seconds.textContent = remaingSeconds
     text.textContent = "Time for a Brake!"
 }
 
 const longBrake = () => {
-    let remaingMinutes = "14"
-    let remaingSeconds = "59"
+    let remaingMinutes = "15"
     minutes.textContent = remaingMinutes
-    seconds.textContent = remaingSeconds
     text.textContent = "Time for a Brake!"
 }
 
@@ -41,8 +36,12 @@ const start = () => {
     let remaingMinutes = minutes.textContent
     let remaingSeconds = seconds.textContent
 
+    const buttonPause = document.getElementById("buttonPause")
+    buttonPause.textContent = "pause"
+    buttonPause.style.display = 'block'
+
     countdownInterval = setInterval(() => {
-        if (remaingSeconds === 0) {
+        if (remaingSeconds == 0) {
             remaingSeconds = 59
             remaingMinutes--
         } else {
@@ -61,18 +60,15 @@ const start = () => {
             minutes.textContent = '0' + remaingMinutes
         }
 
-        if (remaingMinutes === 0 && remaingSeconds === 0) {
+        if (remaingMinutes == 0 && remaingSeconds == 0) {
             clearInterval(countdownInterval)
             buttonStart.textContent = "start"
+            buttonPause.style.display = 'none'
         }
     }, 1000)
-
-    const buttonPause = document.getElementById("buttonPause")
-    buttonPause.textContent = "pause"
-    buttonPause.style.display = 'block'
 }
 
 const pause = () => {
-    console.log('aqui');
     clearInterval(countdownInterval)
+     
 }
