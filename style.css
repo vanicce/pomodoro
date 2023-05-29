@@ -65,3 +65,17 @@
     background-color: transparent;
     border: 1px solid whitesmoke;
 }
+
+@media (max-width: 501px){
+    .buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .btn {
+        margin-bottom: 10px;
+    }
+    .timer {
+        font-size: 5rem;
+    }
+}
