@@ -45,6 +45,7 @@
     font-family: 'Aoboshi One', serif;
     color: whitesmoke;
     font-size: 7.5rem;
+    user-select: none;
 }
 
 #buttonPause {
