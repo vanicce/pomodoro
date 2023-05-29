@@ -66,11 +66,11 @@ const start = () => {
             if (mins === 0 && secs === 0) {
                 clearInterval(countdownInterval)
                 buttonPause.style.display = 'none'
-                window.alert('O Tempo Acabou')
+                window.alert('The Time is Over')
             }
         }, 1000)
     } else {
-        window.alert('Escolha um Pomodoro ou dê uma pausa')
+        window.alert('Choose a Pomodoro or give an pause')
     }
 }
 
