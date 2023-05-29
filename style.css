@@ -21,26 +21,22 @@
     width: 100vw;
 }
 
-.buttons {
+.btn {
+    border-radius: 450px;
+    padding: 0.5rem 0.1rem;   
+    width: 155px;
+    font-family: 'Aoboshi One', serif;
+    cursor: pointer;
+    font-size: 1.1rem;
+    line-height: 1.5rem;
+    border: none;
+    margin: 0 5px;
 }
 
 .button2 {
     display: flex;
     justify-content: center;
 }
-
-button {
-    border-radius: 450px;
-    padding: 0.4rem 0.1rem;   
-    width: 155px;
-    font-family: 'Aoboshi One', serif;
-    cursor: pointer;
-    font-size: 1.125rem;
-    line-height: 1.5rem;
-    border: none;
-    margin: 0 5px;
-}
-
 
 .timer {
     display: flex;
@@ -62,4 +58,10 @@ button {
     font-size: 2.125rem;
     font-family: 'Aoboshi One', serif;
     color: whitesmoke;
+}
+
+.active {
+    color: white;
+    background-color: transparent;
+    border: 1px solid whitesmoke;
 }

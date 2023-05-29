@@ -11,9 +11,9 @@
     <main class="container">
         <div class="pomodoro">
             <div class="buttons">
-                <button onclick="pomodoro()">pomodoro</button>
-                <button onclick="shortBrake()">short brake</button>
-                <button onclick="longBrake()">long brake</button>
+                <button class="btn active" onclick="pomodoro()" id="pomodoro">pomodoro</button>
+                <button class='btn' onclick="shortBrake()" id="shortBrake">short brake</button>
+                <button class="btn" onclick="longBrake()" id="longBrake">long brake</button>
             </div>
             <div class="timer">
                 <p id="minutes"></p>
@@ -21,8 +21,8 @@
                 <p id="seconds"></p>
             </div>
             <div class="button2">
-                <button onclick="start()" id="buttonStart"></button>
-                <button onclick="pause()" id="buttonPause"></button>
+                <button class="btn" onclick="start()" id="buttonStart">start</button>
+                <button class="btn" onclick="pause()" id="buttonPause">pause</button>
             </div>
             <div>
                 <p id="text"></p>
