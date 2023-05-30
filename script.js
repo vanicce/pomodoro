@@ -21,11 +21,23 @@ text.textContent = "Time to Focus!"
 document.title = `${minutes.textContent}:${seconds.textContent} | ${text.textContent}` 
 
 window.onload = () => {
-    modal.style.display = 'block'
+    modal.classList.add('show')
+
+    window.onclick = (event) => {
+        if (event.target == modal) {
+            modal.classList.remove('show');
+            setTimeout(function() {
+                modal.style.display = 'none';
+            }, 300);
+        }
+    }
 }
 
 const closeModal = () => {
-    modal.style.display = 'none'
+    modal.classList.remove('show');
+    setTimeout(function() {
+        modal.style.display = 'none';
+    }, 300);
 }
 
 const setTimer = (mins, secs, timerText) => {
