@@ -70,7 +70,7 @@ const start = () => {
             seconds.textContent = secs.toString().padStart(2, '0');
             minutes.textContent = mins.toString().padStart(2, '0');
             
-            document.title = `${minutes.textContent}:${seconds.textContent}` 
+            document.title = `${minutes.textContent}:${seconds.textContent} | ${text.textContent}` 
 
             if (mins === 0 && secs === 0) {
                 clearInterval(countdownInterval)
