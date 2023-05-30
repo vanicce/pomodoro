@@ -18,7 +18,7 @@ minutes.textContent = "25"
 seconds.textContent = "00"
 text.textContent = "Time to Focus!"
 
-document.title = `${minutes.textContent}:${seconds.textContent} | ${text.textContent}` 
+document.title = `${minutes.textContent}:${seconds.textContent} | ${text.textContent}`
 
 window.onload = () => {
     modal.classList.add('show')
@@ -26,7 +26,7 @@ window.onload = () => {
     window.onclick = (event) => {
         if (event.target == modal) {
             modal.classList.remove('show');
-            setTimeout(function() {
+            setTimeout( () => {
                 modal.style.display = 'none';
             }, 300);
         }
@@ -35,7 +35,7 @@ window.onload = () => {
 
 const closeModal = () => {
     modal.classList.remove('show');
-    setTimeout(function() {
+    setTimeout( () => {
         modal.style.display = 'none';
     }, 300);
 }
@@ -45,13 +45,12 @@ const playAudio = () => {
     sound.play()
 }
 
-
 const setTimer = (mins, secs, timerText) => {
     clearInterval(countdownInterval)
     minutes.textContent = mins
     seconds.textContent = secs
     text.textContent = timerText
-    document.title = `${minutes.textContent}:${seconds.textContent} | ${text.textContent}` 
+    document.title = `${minutes.textContent}:${seconds.textContent} | ${text.textContent}`
     buttonPause.style.display = 'none'
     pomodoroButton.classList.remove('active')
     shortBrakeButton.classList.remove('active')
@@ -66,7 +65,7 @@ const pomodoro = () => {
 }
 
 const shortBrake = () => {
-    setTimer("01", "00", "Time for a Brake!")
+    setTimer("05", "00", "Time for a Brake!")
     shortBrakeButton.classList.add('active')
 }
 
@@ -76,44 +75,39 @@ const longBrake = () => {
 }
 
 const start = () => {
-    const remaingMinutes = parseInt(minutes.textContent)
-    const remaingSeconds = parseInt(seconds.textContent)
+    playAudio()
 
+    buttonPause.style.display = 'block'
+    
     buttonPause.classList.remove('active')
+    
+    buttonStart.classList.add('active')
 
-    if (remaingMinutes > 0 && remaingSeconds >= 0) {
-        playAudio()
-        buttonStart.disabled = true
-        buttonStart.classList.add('active')
-        buttonPause.style.display = 'block'
+    buttonStart.disabled = true
 
-        countdownInterval = setInterval(() => {
-            let mins = parseInt(minutes.textContent)
-            let secs = parseInt(seconds.textContent)
+    countdownInterval = setInterval(() => {
+        let mins = parseInt(minutes.textContent)
+        let secs = parseInt(seconds.textContent)
 
-            if (secs === 0) {
-                secs = 59
-                mins--
-            } else {
-                secs--
-            }
+        if (secs === 0) {
+            secs = 59
+            mins--
+        } else {
+            secs--
+        }
 
-            seconds.textContent = secs.toString().padStart(2, '0');
-            minutes.textContent = mins.toString().padStart(2, '0');
-            
-            document.title = `${minutes.textContent}:${seconds.textContent} | ${text.textContent}` 
+        seconds.textContent = secs.toString().padStart(2, '0');
+        minutes.textContent = mins.toString().padStart(2, '0');
 
-            if (mins === 0 && secs === 0) {
-                clearInterval(countdownInterval)
-                playAudio()
-                buttonPause.style.display = 'none'
-                buttonStart.classList.remove('active')
-                window.alert('The Time is Over')
-            }
-        }, 1000)
-    } else {
-        window.alert('Choose a Pomodoro or give an pause')
-    }
+        document.title = `${minutes.textContent}:${seconds.textContent} | ${text.textContent}`
+
+        if (mins === 0 && secs === 0) {
+            playAudio()
+            clearInterval(countdownInterval)
+            buttonPause.style.display = 'none'
+            buttonStart.classList.remove('active')
+        }
+    }, 1000)
 }
 
 const pause = () => {
