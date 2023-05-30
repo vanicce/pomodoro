@@ -21,6 +21,9 @@
 }
 
 #modal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0s linear 0.3s;
@@ -43,17 +46,20 @@
 
 .modal-header button {
     padding: 0.5rem;
-    width: 5rem;
-    border-radius: 5px;
-    font-family: 'Aoboshi One', serif;
-    background-color: transparent;
+    width: 3rem;
     cursor: pointer;
+    border: none;
+}
+
+.modal-header button img {
+    width: 100%;
+    height: 100%;
 }
 
 .modal-header {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: center;
     margin-bottom: 15px;
 }
 
