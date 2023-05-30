@@ -81,14 +81,13 @@
     cursor: pointer;
     font-size: 1.1rem;
     line-height: 1.5rem;
-    border: none;
-    margin: 0 5px;
+    border: 1px solid whitesmoke;
+    margin: 5px 5px;
 }
 
 .btn:hover {
-    color: white;
+    color: whitesmoke;
     background-color: transparent;
-    border: 1px solid whitesmoke;
     transition: 0.4s ease-in-out;
 }
 

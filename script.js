@@ -82,6 +82,7 @@ const start = () => {
     buttonPause.classList.remove('active')
 
     if (remaingMinutes > 0 && remaingSeconds >= 0) {
+        playAudio()
         buttonStart.disabled = true
         buttonStart.classList.add('active')
         buttonPause.style.display = 'block'
