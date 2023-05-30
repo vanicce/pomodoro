@@ -1,3 +1,5 @@
+const modal = document.querySelector('#modal')
+
 const minutes = document.getElementById("minutes")
 const seconds = document.getElementById("seconds")
 
@@ -17,6 +19,14 @@ seconds.textContent = "00"
 text.textContent = "Time to Focus!"
 
 document.title = `${minutes.textContent}:${seconds.textContent} | ${text.textContent}` 
+
+window.onload = () => {
+    modal.style.display = 'block'
+}
+
+const closeModal = () => {
+    modal.style.display = 'none'
+}
 
 const setTimer = (mins, secs, timerText) => {
     clearInterval(countdownInterval)
