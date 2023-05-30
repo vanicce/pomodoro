@@ -25,6 +25,7 @@ const setTimer = (mins, secs, timerText) => {
     pomodoroButton.classList.remove('active')
     shortBrakeButton.classList.remove('active')
     longBrakeButton.classList.remove('active')
+    buttonStart.classList.remove('active')
 }
 
 const pomodoro = () => {
@@ -49,6 +50,7 @@ const start = () => {
     buttonPause.classList.remove('active')
 
     if (remaingMinutes > 0 && remaingSeconds >= 0) {
+        buttonStart.classList.add('active')
         buttonPause.style.display = 'block'
 
         countdownInterval = setInterval(() => {
@@ -79,4 +81,5 @@ const start = () => {
 const pause = () => {
     clearInterval(countdownInterval)
     buttonPause.classList.add('active')
+    buttonStart.classList.remove('active')
 }
