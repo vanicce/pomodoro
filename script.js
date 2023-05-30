@@ -40,6 +40,12 @@ const closeModal = () => {
     }, 300);
 }
 
+const playAudio = () => {
+    let sound = new Audio('sounds/zeldasound.mp3')
+    sound.play()
+}
+
+
 const setTimer = (mins, secs, timerText) => {
     clearInterval(countdownInterval)
     minutes.textContent = mins
@@ -98,7 +104,9 @@ const start = () => {
 
             if (mins === 0 && secs === 0) {
                 clearInterval(countdownInterval)
+                playAudio()
                 buttonPause.style.display = 'none'
+                buttonStart.classList.remove('active')
                 window.alert('The Time is Over')
             }
         }, 1000)
