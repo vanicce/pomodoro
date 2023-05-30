@@ -66,7 +66,7 @@ const pomodoro = () => {
 }
 
 const shortBrake = () => {
-    setTimer("05", "00", "Time for a Brake!")
+    setTimer("01", "00", "Time for a Brake!")
     shortBrakeButton.classList.add('active')
 }
 
