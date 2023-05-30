@@ -46,6 +46,8 @@ const start = () => {
     const remaingMinutes = parseInt(minutes.textContent)
     const remaingSeconds = parseInt(seconds.textContent)
 
+    buttonPause.classList.remove('active')
+
     if (remaingMinutes > 0 && remaingSeconds >= 0) {
         buttonPause.style.display = 'block'
 
@@ -76,4 +78,5 @@ const start = () => {
 
 const pause = () => {
     clearInterval(countdownInterval)
+    buttonPause.classList.add('active')
 }

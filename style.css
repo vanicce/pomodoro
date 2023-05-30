@@ -2,9 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital@1&display=swap');
 
 :root {
-    background-image: url(background.jpg);
     background-size: cover;
     background-repeat: no-repeat;
+    background: linear-gradient(315deg, hsla(136, 85%, 74%, 1) 0%, hsla(139, 41%, 60%, 1) 15%, hsla(181, 38%, 46%, 1) 48%, hsla(184, 38%, 44%, 1) 53%, hsla(199, 35%, 37%, 1) 66%, hsla(211, 27%, 30%, 1) 80%, hsla(230, 17%, 27%, 1) 94%);
 }
 
 * {
@@ -78,5 +78,9 @@
     }
     .timer {
         font-size: 5rem;
+    }
+    .button-timer{
+        align-items: center;
+        flex-direction: column;
     }
 }
