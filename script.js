@@ -85,8 +85,6 @@ const start = () => {
 
     buttonStart.disabled = true
 
-    buttonStart.style.cursor = 'default'
-    
     countdownInterval = setInterval(() => {
         let mins = parseInt(minutes.textContent)
         let secs = parseInt(seconds.textContent)
@@ -117,5 +115,4 @@ const pause = () => {
     buttonPause.classList.add('active')
     buttonStart.classList.remove('active')
     buttonStart.disabled = false
-    buttonStart.style.cursor = 'pointer'
 }
