@@ -14,10 +14,6 @@ const longBrakeButton = document.getElementById("longBrake")
 
 let countdownInterval
 
-minutes.textContent = "25"
-seconds.textContent = "00"
-text.textContent = "Time to Focus!"
-
 document.title = `${minutes.textContent}:${seconds.textContent} | ${text.textContent}`
 
 window.onload = () => {
@@ -45,19 +41,21 @@ const playAudio = () => {
     sound.play()
 }
 
-const setTimer = (mins, secs, timerText) => {
+const setTimer = (mins = "25", secs = "00", timerText = "Time to Focus!") => {
     clearInterval(countdownInterval)
     minutes.textContent = mins
     seconds.textContent = secs
     text.textContent = timerText
     document.title = `${minutes.textContent}:${seconds.textContent} | ${text.textContent}`
     buttonPause.style.display = 'none'
-    pomodoroButton.classList.remove('active')
+    pomodoroButton.classList.add('active')
     shortBrakeButton.classList.remove('active')
     longBrakeButton.classList.remove('active')
     buttonStart.classList.remove('active')
     buttonStart.disabled = false
 }
+
+setTimer()
 
 const pomodoro = () => {
     setTimer("25", "00", "Time to Focus!")
@@ -66,11 +64,13 @@ const pomodoro = () => {
 
 const shortBrake = () => {
     setTimer("05", "00", "Time for a Brake!")
+    pomodoroButton.classList.remove('active')
     shortBrakeButton.classList.add('active')
 }
 
 const longBrake = () => {
     setTimer("15", "00", "Time for a Brake!")
+    pomodoroButton.classList.remove('active') 
     longBrakeButton.classList.add('active')
 }
 
@@ -85,6 +85,8 @@ const start = () => {
 
     buttonStart.disabled = true
 
+    buttonStart.style.cursor = 'default'
+    
     countdownInterval = setInterval(() => {
         let mins = parseInt(minutes.textContent)
         let secs = parseInt(seconds.textContent)
@@ -115,4 +117,5 @@ const pause = () => {
     buttonPause.classList.add('active')
     buttonStart.classList.remove('active')
     buttonStart.disabled = false
+    buttonStart.style.cursor = 'pointer'
 }
