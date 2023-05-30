@@ -16,11 +16,14 @@ minutes.textContent = "25"
 seconds.textContent = "00"
 text.textContent = "Time to Focus!"
 
+document.title = `${minutes.textContent}:${seconds.textContent} | ${text.textContent}` 
+
 const setTimer = (mins, secs, timerText) => {
     clearInterval(countdownInterval)
     minutes.textContent = mins
     seconds.textContent = secs
     text.textContent = timerText
+    document.title = `${minutes.textContent}:${seconds.textContent} | ${text.textContent}` 
     buttonPause.style.display = 'none'
     pomodoroButton.classList.remove('active')
     shortBrakeButton.classList.remove('active')
@@ -66,6 +69,8 @@ const start = () => {
 
             seconds.textContent = secs.toString().padStart(2, '0');
             minutes.textContent = mins.toString().padStart(2, '0');
+            
+            document.title = `${minutes.textContent}:${seconds.textContent}` 
 
             if (mins === 0 && secs === 0) {
                 clearInterval(countdownInterval)
