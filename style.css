@@ -128,6 +128,10 @@
 }
 
 @media (max-width: 501px){
+    .container{
+        width: 100vw;
+        height: 100vh;
+    }
     .buttons {
         display: flex;
         flex-direction: column;
