@@ -29,6 +29,8 @@
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0s linear 0.3s;
     position: fixed;
+    top: 0;
+    left: 0;
     z-index: 1;
     width: 100%;
     height: 100%;
@@ -133,12 +135,12 @@
     }
     .btn {
         margin-bottom: 10px;
+        font-size: 1rem;
     }
     .timer {
         font-size: 5rem;
     }
     .button-timer{
         align-items: center;
-        flex-direction: column;
     }
 }
