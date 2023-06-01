@@ -62,11 +62,11 @@ const pomodoro = () => {
     pomodoroButton.classList.add('active')
 }
 
-const shortBrake = () => {
+const shortBrake = (() => {
     setTimer("05", "00", "Time for a Brake!")
     pomodoroButton.classList.remove('active')
     shortBrakeButton.classList.add('active')
-}
+})
 
 const longBrake = () => {
     setTimer("15", "00", "Time for a Brake!")
