@@ -14,7 +14,8 @@ const longBrakeButton = document.getElementById("longBrake")
 
 let countdownInterval
 
-const permission = async () => await Notification.requestPermission()
+const permission = (async () => await Notification.requestPermission())()
+
 
 const showNotification = () => {
     new Notification("Pomodoro", {
