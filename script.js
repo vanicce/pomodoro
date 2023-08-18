@@ -14,6 +14,16 @@ const longBrakeButton = document.getElementById("longBrake")
 
 let countdownInterval
 
+const permission = async () => await Notification.requestPermission()
+
+const showNotification = () => {
+    new Notification("Pomodoro", {
+        body: `Your Timer is Done`,
+        icon: './imgs/clock.svg',
+        vibrate: true
+    })
+}
+
 document.title = `${minutes.textContent}:${seconds.textContent} | ${text.textContent}`
 
 window.onload = () => {
@@ -62,15 +72,15 @@ const pomodoro = () => {
     pomodoroButton.classList.add('active')
 }
 
-const shortBrake = (() => {
+const shortBrake = () => {
     setTimer("05", "00", "Time for a Brake!")
     pomodoroButton.classList.remove('active')
     shortBrakeButton.classList.add('active')
-})
+}
 
 const longBrake = () => {
     setTimer("15", "00", "Time for a Brake!")
-    pomodoroButton.classList.remove('active') 
+    pomodoroButton.classList.remove('active')
     longBrakeButton.classList.add('active')
 }
 
@@ -78,9 +88,9 @@ const start = () => {
     playAudio()
 
     buttonPause.style.display = 'block'
-    
+
     buttonPause.classList.remove('active')
-    
+
     buttonStart.classList.add('active')
 
     buttonStart.disabled = true
@@ -106,6 +116,7 @@ const start = () => {
             clearInterval(countdownInterval)
             buttonPause.style.display = 'none'
             buttonStart.classList.remove('active')
+            showNotification()
         }
     }, 1000)
 }
