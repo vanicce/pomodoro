@@ -26,30 +26,24 @@ const showNotification = () => {
 
 document.title = `${minutes.textContent}:${seconds.textContent} | ${text.textContent}`
 
+const closeModal = () => {
+  localStorage.setItem("class", "hidden")
+  modal.classList.remove('show');
+  setTimeout( () => {
+      modal.style.display = 'none';
+  }, 300);
+}
+
 window = (() => {
   const myClass = localStorage.getItem("class")
   if (!myClass) {
     modal.classList.add('show')
 
     window.onclick = (event) => {
-      if (event.target == modal) {
-        modal.classList.remove('show')
-        setTimeout( () => {
-          modal.style.display = 'none';
-        }, 300);
+      closeModal()
       }
-      localStorage.setItem("class", "hidden")
-    }
     }
 })()
-
-const closeModal = () => {
-    localStorage.setItem("class", "hidden")
-    modal.classList.remove('show');
-    setTimeout( () => {
-        modal.style.display = 'none';
-    }, 300);
-}
 
 const playAudio = () => {
     let sound = new Audio('sounds/zeldasound.mp3')
