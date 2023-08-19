@@ -4,9 +4,9 @@ A Técnica Pomodoro é um método de gerenciamento de tempo desenvolvido por Fra
 
 Tecnologias Utilizadas: HTML, CSS e JavaScript (Puro)
 
-Conhecimentos Utilizados: Programação Funcional, Manipulação de DOM, Manipulação de BOM, Layout Responsivo, JavaScript ES6, Código Limpo, JavaScript Assíncrono
+Conhecimentos Utilizados: Programação Funcional, Manipulação de DOM, Manipulação de BOM, Layout Responsivo, JavaScript ES6, Código Limpo, JavaScript Assíncrono, LocalStorage, IIFE's, utilização da API de notificação do navegador
 
 Link do projeto: https://lucas-pomodoro.vercel.app/
 
 Imagem do projeto: ![image](https://github.com/lucwx/pomodoro/assets/103083001/2163c002-5b7c-4564-89e8-05d2f299c159)
- 
+

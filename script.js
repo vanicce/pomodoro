@@ -113,12 +113,12 @@ const start = () => {
     buttonStart.classList.add('active')
     buttonStart.disabled = true
 
+    mins = parseInt(minutes.textContent)
+    secs = parseInt(seconds.textContent)
+
     countdownInterval = setInterval(() => {
-      mins = parseInt(minutes.textContent)
-      secs = parseInt(seconds.textContent)
-
       mins === 0 && secs === 0 ? endTimer() : initTimer()
-
+      
     }, 1000)
 }
 
