@@ -1,21 +1,20 @@
 const modal = document.querySelector('#modal')
 
-const minutes = document.getElementById("minutes")
-const seconds = document.getElementById("seconds")
+const minutes = document.querySelector("#minutes")
+const seconds = document.querySelector("#seconds")
 
-const buttonStart = document.getElementById("buttonStart")
-const buttonPause = document.getElementById("buttonPause")
+const buttonStart = document.querySelector("#buttonStart")
+const buttonPause = document.querySelector("#buttonPause")
 
-const text = document.getElementById("text")
+const text = document.querySelector("#text")
 
-const pomodoroButton = document.getElementById("pomodoro")
-const shortBrakeButton = document.getElementById("shortBrake")
-const longBrakeButton = document.getElementById("longBrake")
+const pomodoroButton = document.querySelector("#pomodoro")
+const shortBrakeButton = document.querySelector("#shortBrake")
+const longBrakeButton = document.querySelector("#longBrake")
 
 let countdownInterval
 
-const permission = (async () => await Notification.requestPermission())()
-
+(async () => await Notification.requestPermission())()
 
 const showNotification = () => {
     new Notification("Pomodoro", {
@@ -27,20 +26,25 @@ const showNotification = () => {
 
 document.title = `${minutes.textContent}:${seconds.textContent} | ${text.textContent}`
 
-window.onload = () => {
+window = (() => {
+  const myClass = localStorage.getItem("class")
+  if (!myClass) {
     modal.classList.add('show')
 
     window.onclick = (event) => {
-        if (event.target == modal) {
-            modal.classList.remove('show');
-            setTimeout( () => {
-                modal.style.display = 'none';
-            }, 300);
-        }
+      if (event.target == modal) {
+        modal.classList.remove('show')
+        setTimeout( () => {
+          modal.style.display = 'none';
+        }, 300);
+      }
+      localStorage.setItem("class", "hidden")
     }
-}
+    }
+})()
 
 const closeModal = () => {
+    localStorage.setItem("class", "hidden")
     modal.classList.remove('show');
     setTimeout( () => {
         modal.style.display = 'none';
@@ -85,40 +89,42 @@ const longBrake = () => {
     longBrakeButton.classList.add('active')
 }
 
+const initTimer = () => {
+  if (secs === 0) {
+      secs = 59
+      mins--
+    } else {
+        secs--
+    }
+
+  seconds.textContent = secs.toString().padStart(2, '0');
+  minutes.textContent = mins.toString().padStart(2, '0');
+
+  document.title = `${minutes.textContent}:${seconds.textContent} | ${text.textContent}`
+}
+
+const endTimer = () => {
+    playAudio()
+    clearInterval(countdownInterval)
+    buttonPause.style.display = 'none'
+    buttonStart.classList.remove('active')
+    showNotification()
+}
+
 const start = () => {
     playAudio()
 
     buttonPause.style.display = 'block'
-
     buttonPause.classList.remove('active')
-
     buttonStart.classList.add('active')
-
     buttonStart.disabled = true
 
     countdownInterval = setInterval(() => {
-        let mins = parseInt(minutes.textContent)
-        let secs = parseInt(seconds.textContent)
+      mins = parseInt(minutes.textContent)
+      secs = parseInt(seconds.textContent)
 
-        if (secs === 0) {
-            secs = 59
-            mins--
-        } else {
-            secs--
-        }
+      mins === 0 && secs === 0 ? endTimer() : initTimer()
 
-        seconds.textContent = secs.toString().padStart(2, '0');
-        minutes.textContent = mins.toString().padStart(2, '0');
-
-        document.title = `${minutes.textContent}:${seconds.textContent} | ${text.textContent}`
-
-        if (mins === 0 && secs === 0) {
-            playAudio()
-            clearInterval(countdownInterval)
-            buttonPause.style.display = 'none'
-            buttonStart.classList.remove('active')
-            showNotification()
-        }
     }, 1000)
 }
 
