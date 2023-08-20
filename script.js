@@ -1,4 +1,5 @@
 const modal = document.querySelector("#modal");
+const closeModalButton = document.querySelector("#closeModal")
 
 const minutes = document.querySelector("#minutes");
 const seconds = document.querySelector("#seconds");
@@ -32,9 +33,11 @@ const closeModal = () => {
   setTimeout(() => {
     modal.style.display = "none";
   }, 300);
-};
+}
 
-window = (() => {
+closeModalButton.addEventListener('click', closeModal )
+
+showModal = (() => {
   const myClass = localStorage.getItem("class");
   if (!myClass) {
     modal.classList.add("show");
@@ -71,17 +74,23 @@ const pomodoro = () => {
   pomodoroButton.classList.add("active");
 };
 
+pomodoroButton.addEventListener('click', pomodoro);
+
 const shortBrake = () => {
   setTimer("05", "00", "Time for a Brake!");
   pomodoroButton.classList.remove("active");
   shortBrakeButton.classList.add("active");
 };
 
+shortBrakeButton.addEventListener('click', shortBrake);
+
 const longBrake = () => {
   setTimer("15", "00", "Time for a Brake!");
   pomodoroButton.classList.remove("active");
   longBrakeButton.classList.add("active");
 };
+
+longBrakeButton.addEventListener('click', longBrake);
 
 const initTimer = () => {
   if (secs === 0) {
@@ -119,11 +128,15 @@ const start = () => {
   countdownInterval = setInterval(() => {
     mins === 0 && secs === 0 ? endTimer() : initTimer();
   }, 1000);
-};
+}
+
+buttonStart.addEventListener('click', start);
 
 const pause = () => {
   clearInterval(countdownInterval);
   buttonPause.classList.add("active");
   buttonStart.classList.remove("active");
   buttonStart.disabled = false;
-};
+}
+
+buttonPause.addEventListener('click', pause);

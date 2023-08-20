@@ -34,25 +34,25 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h3>What is the Pomodoro Technique?</h3>
-                    <button onclick="closeModal()"><img src="imgs/xx.png" alt=""></button>
+                    <button><img src="imgs/xx.png" alt="close modal" id="closeModal"></button>
                 </div>
                 <p>The Pomodoro Technique was developed in the late 1980s by then university student Francesco Cirillo. Cirillo was struggling to focus on his studies and complete assignments. Feeling overwhelmed, he asked himself to commit to just 10 minutes of focused study time. Encouraged by the challenge, he found a tomato (pomodoro in Italian) shaped kitchen timer, and the Pomodoro technique was born.</p>
             </div>
         </div>
         <div class="pomodoro">
             <div class="buttons">
-                <button class="btn active" onclick="pomodoro()" id="pomodoro">pomodoro</button>
-                <button class='btn' onclick="shortBrake()" id="shortBrake">short brake</button>
-                <button class="btn" onclick="longBrake()" id="longBrake">long brake</button>
+                <button class="btn active" id="pomodoro">pomodoro</button>
+                <button class="btn" id="shortBrake">short brake</button>
+                <button class="btn" id="longBrake">long brake</button>
             </div>
             <div class="timer">
-                <p id="minutes"></p>
+                <p id="minutes">25</p>
                 <p>:</p>
-                <p id="seconds"></p>
+                <p id="seconds">00</p>
             </div>
             <div class="button-timer">
-                <button class="btn" onclick="start()" id="buttonStart">start</button>
-                <button class="btn" onclick="pause()" id="buttonPause">pause</button>
+                <button class="btn" id="buttonStart">start</button>
+                <button class="btn" id="buttonPause">pause</button>
             </div>
             <div>
                 <p id="text"></p>
