@@ -1,65 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <!-- Primary Meta Tags -->
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pomodoro Timer</title>
-    <meta name="title" content="Pomodoro Timer">
-    <meta name="description" content="Um contador pomodoro simples, bonito e funcional.">
+    <meta name="title" content="Pomodoro Timer" />
+    <meta
+      name="description"
+      content="Um contador pomodoro simples, bonito e funcional."
+    />
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://lucas-pomodoro.vercel.app/">
-    <meta property="og:title" content="Pomodoro Timer">
-    <meta property="og:description" content="Um contador pomodoro simples, bonito e funcional.">
-    <meta property="og:image" content="./imgs/img-project.png">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://lucas-pomodoro.vercel.app/" />
+    <meta property="og:title" content="Pomodoro Timer" />
+    <meta
+      property="og:description"
+      content="Um contador pomodoro simples, bonito e funcional."
+    />
+    <meta property="og:image" content="./imgs/img-project.png" />
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://lucas-pomodoro.vercel.app/">
-    <meta property="twitter:title" content="Pomodoro Timer">
-    <meta property="twitter:description" content="Um contador pomodoro simples, bonito e funcional.">
-    <meta property="twitter:image" content="">
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://lucas-pomodoro.vercel.app/" />
+    <meta property="twitter:title" content="Pomodoro Timer" />
+    <meta
+      property="twitter:description"
+      content="Um contador pomodoro simples, bonito e funcional."
+    />
+    <meta property="twitter:image" content="" />
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="imgs/clock.svg" type="image/x-icon">
-</head>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="imgs/clock.svg" type="image/x-icon" />
+  </head>
 
-<body>
+  <body>
     <main class="container">
-        <div id="modal">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3>What is the Pomodoro Technique?</h3>
-                    <button><img src="imgs/xx.png" alt="close modal" id="closeModal"></button>
-                </div>
-                <p>The Pomodoro Technique was developed in the late 1980s by then university student Francesco Cirillo. Cirillo was struggling to focus on his studies and complete assignments. Feeling overwhelmed, he asked himself to commit to just 10 minutes of focused study time. Encouraged by the challenge, he found a tomato (pomodoro in Italian) shaped kitchen timer, and the Pomodoro technique was born.</p>
-            </div>
+      <div id="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3>What is the Pomodoro Technique?</h3>
+            <button>
+              <img src="imgs/xx.png" alt="close modal" id="closeModal" />
+            </button>
+          </div>
+          <p>
+            The Pomodoro Technique was developed in the late 1980s by then
+            university student Francesco Cirillo. Cirillo was struggling to
+            focus on his studies and complete assignments. Feeling overwhelmed,
+            he asked himself to commit to just 10 minutes of focused study time.
+            Encouraged by the challenge, he found a tomato (pomodoro in Italian)
+            shaped kitchen timer, and the Pomodoro technique was born.
+          </p>
         </div>
-        <div class="pomodoro">
-            <div class="buttons">
-                <button class="btn active" id="pomodoro">pomodoro</button>
-                <button class="btn" id="shortBrake">short brake</button>
-                <button class="btn" id="longBrake">long brake</button>
-            </div>
-            <div class="timer">
-                <p id="minutes">25</p>
-                <p>:</p>
-                <p id="seconds">00</p>
-            </div>
-            <div class="button-timer">
-                <button class="btn" id="buttonStart">start</button>
-                <button class="btn" id="buttonPause">pause</button>
-            </div>
-            <div>
-                <p id="text"></p>
-            </div>
+      </div>
+      <div class="pomodoro">
+        <div class="buttons">
+          <button class="btn active" id="pomodoro">pomodoro</button>
+          <button class="btn" id="shortBrake">short brake</button>
+          <button class="btn" id="longBrake">long brake</button>
         </div>
+        <div class="timer">
+          <p id="minutes"></p>
+          <p>:</p>
+          <p id="seconds"></p>
+        </div>
+        <div class="button-timer">
+          <button class="btn" id="buttonStart">start</button>
+          <button class="btn" id="buttonPause">pause</button>
+        </div>
+        <div>
+          <p id="text"></p>
+        </div>
+      </div>
     </main>
     <script src="script.js"></script>
-</body>
-
+  </body>
 </html>

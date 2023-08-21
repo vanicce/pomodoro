@@ -19,13 +19,13 @@ let countdownInterval;
 
 const showNotification = () => {
   new Notification("Pomodoro", {
-    body: `Your Timer is Done`,
+    body: `Your Timer is Done!`,
     icon: "./imgs/clock.svg",
     vibrate: true,
   });
 };
 
-document.title = `${minutes.textContent}:${seconds.textContent} | ${text.textContent}`;
+document.title = `${minutes}:${seconds} | ${text}`;
 
 const closeModal = () => {
   localStorage.setItem("class", "hidden");
@@ -53,32 +53,35 @@ const playAudio = () => {
   sound.play();
 };
 
-const setTimer = (mins = "25", secs = "00", timerText = "Time to Focus!") => {
+const setTimer = (mins, secs, timerText) => {
   clearInterval(countdownInterval);
+
   minutes.textContent = mins;
   seconds.textContent = secs;
   text.textContent = timerText;
-  document.title = `${minutes.textContent}:${seconds.textContent} | ${text.textContent}`;
-  buttonPause.style.display = "none";
-  pomodoroButton.classList.add("active");
+
+  document.title = `${mins}:${secs} | ${timerText}`;
+
+  pomodoroButton.classList.remove("active");
   shortBrakeButton.classList.remove("active");
   longBrakeButton.classList.remove("active");
   buttonStart.classList.remove("active");
+
   buttonStart.disabled = false;
+  buttonPause.style.display = "none";
 };
 
 setTimer();
 
-const pomodoro = () => {
+( pomodoro = () => {
   setTimer("25", "00", "Time to Focus!");
   pomodoroButton.classList.add("active");
-};
+})();
 
 pomodoroButton.addEventListener('click', pomodoro);
 
 const shortBrake = () => {
   setTimer("05", "00", "Time for a Brake!");
-  pomodoroButton.classList.remove("active");
   shortBrakeButton.classList.add("active");
 };
 
@@ -86,7 +89,6 @@ shortBrakeButton.addEventListener('click', shortBrake);
 
 const longBrake = () => {
   setTimer("15", "00", "Time for a Brake!");
-  pomodoroButton.classList.remove("active");
   longBrakeButton.classList.add("active");
 };
 
@@ -107,11 +109,15 @@ const initTimer = () => {
 };
 
 const endTimer = () => {
-  playAudio();
   clearInterval(countdownInterval);
+  playAudio();
+  showNotification();
   buttonPause.style.display = "none";
   buttonStart.classList.remove("active");
-  showNotification();
+
+  text.textContent = "Your Timer is Done!"
+
+  document.title = `${minutes.textContent}:${seconds.textContent} | ${text.textContent}`
 };
 
 const start = () => {
