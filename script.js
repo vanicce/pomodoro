@@ -1,5 +1,5 @@
 const modal = document.querySelector("#modal");
-const closeModalButton = document.querySelector("#closeModal")
+const closeModalButton = document.querySelector("#closeModal");
 
 const minutes = document.querySelector("#minutes");
 const seconds = document.querySelector("#seconds");
@@ -21,32 +21,32 @@ const showNotification = () => {
   new Notification("Pomodoro", {
     body: `Your Timer is Done!`,
     icon: "./imgs/clock.svg",
-    vibrate: true,
+    vibrate: [200, 100, 200],
   });
 };
 
 document.title = `${minutes}:${seconds} | ${text}`;
 
 const closeModal = () => {
-  localStorage.setItem("class", "hidden");
+  localStorage.setItem("hidden", "true");
   modal.classList.remove("show");
   setTimeout(() => {
     modal.style.display = "none";
   }, 300);
-}
+};
 
-closeModalButton.addEventListener('click', closeModal )
+closeModalButton.addEventListener("click", closeModal);
 
-showModal = (() => {
-  const myClass = localStorage.getItem("class");
-  if (!myClass) {
+const myClass = localStorage.getItem("hidden");
+if (!myClass) {
+  showModal = (() => {
     modal.classList.add("show");
 
-    window.onclick = (event) => {
+    window.onclick = () => {
       closeModal();
     };
-  }
-})();
+  })();
+}
 
 const playAudio = () => {
   let sound = new Audio("sounds/zeldasound.mp3");
@@ -71,28 +71,26 @@ const setTimer = (mins, secs, timerText) => {
   buttonPause.style.display = "none";
 };
 
-setTimer();
-
-( pomodoro = () => {
+(pomodoro = () => {
   setTimer("25", "00", "Time to Focus!");
   pomodoroButton.classList.add("active");
 })();
 
-pomodoroButton.addEventListener('click', pomodoro);
+pomodoroButton.addEventListener("click", pomodoro);
 
 const shortBrake = () => {
   setTimer("05", "00", "Time for a Brake!");
   shortBrakeButton.classList.add("active");
 };
 
-shortBrakeButton.addEventListener('click', shortBrake);
+shortBrakeButton.addEventListener("click", shortBrake);
 
 const longBrake = () => {
   setTimer("15", "00", "Time for a Brake!");
   longBrakeButton.classList.add("active");
 };
 
-longBrakeButton.addEventListener('click', longBrake);
+longBrakeButton.addEventListener("click", longBrake);
 
 const initTimer = () => {
   if (secs === 0) {
@@ -115,9 +113,9 @@ const endTimer = () => {
   buttonPause.style.display = "none";
   buttonStart.classList.remove("active");
 
-  text.textContent = "Your Timer is Done!"
+  text.textContent = "Your Timer is Done!";
 
-  document.title = `${minutes.textContent}:${seconds.textContent} | ${text.textContent}`
+  document.title = `${minutes.textContent}:${seconds.textContent} | ${text.textContent}`;
 };
 
 const start = () => {
@@ -134,15 +132,15 @@ const start = () => {
   countdownInterval = setInterval(() => {
     mins === 0 && secs === 0 ? endTimer() : initTimer();
   }, 1000);
-}
+};
 
-buttonStart.addEventListener('click', start);
+buttonStart.addEventListener("click", start);
 
 const pause = () => {
   clearInterval(countdownInterval);
   buttonPause.classList.add("active");
   buttonStart.classList.remove("active");
   buttonStart.disabled = false;
-}
+};
 
-buttonPause.addEventListener('click', pause);
+buttonPause.addEventListener("click", pause);
