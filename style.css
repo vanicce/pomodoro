@@ -1,150 +1,184 @@
-@import url('https://fonts.googleapis.com/css2?family=Aoboshi+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Aoboshi+One&display=swap");
 
 :root {
-    background: linear-gradient(315deg, hsla(136, 85%, 74%, 1) 0%, hsla(139, 41%, 60%, 1) 15%, hsla(181, 38%, 46%, 1) 48%, hsla(184, 38%, 44%, 1) 53%, hsla(199, 35%, 37%, 1) 66%, hsla(211, 27%, 30%, 1) 80%, hsla(230, 17%, 27%, 1) 94%);
-    background-size: cover;
-    background-repeat: no-repeat;
+	-webkit-tap-highlight-color: transparent;
+  background: linear-gradient(
+    315deg,
+    hsla(136, 85%, 74%, 1) 0%,
+    hsla(139, 41%, 60%, 1) 15%,
+    hsla(181, 38%, 46%, 1) 48%,
+    hsla(184, 38%, 44%, 1) 53%,
+    hsla(199, 35%, 37%, 1) 66%,
+    hsla(211, 27%, 30%, 1) 80%,
+    hsla(230, 17%, 27%, 1) 94%
+  );
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 * {
-    -webkit-tap-highlight-color: transparent;
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
 }
 
-#modal{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    visibility: hidden;
-    opacity: 0;
-    z-index: 1;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    font-family: 'Aoboshi One', serif;
-    transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+#modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-family: "Aoboshi One", serif;
+  transition: opacity 0.3s ease, visibility 0s linear 0.3s;
 }
 
-#modal.show{
-    visibility: visible;
-    opacity: 1;
-    transition-delay: 0.3s;
+#modal.show {
+  visibility: visible;
+  opacity: 1;
+  transition-delay: 0.3s;
 }
 
 .modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
 }
 
 .modal-header button {
-    padding: 0.5rem;
-    width: 3rem;
-    cursor: pointer;
-    border: none;
-    background: transparent;
+  padding: 0.5rem;
+  width: 3rem;
+  cursor: pointer;
+  border: none;
+  background: transparent;
 }
 
 .modal-header button img {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
-.modal-content{
-    margin: 15% auto;
-    padding: 20px;
-    width: 80%;
-    max-width: 600px;
-    border: 1px solid #888;
-    border-radius: 15px;
-    background-color: hsl(0, 0%, 96%);
+.modal-content {
+  margin: 15% auto;
+  padding: 20px;
+  width: 80%;
+  max-width: 600px;
+  border: 1px solid #888;
+  border-radius: 15px;
+  background-color: hsl(0, 0%, 96%);
 }
 
 .btn {
-    cursor: pointer;
-    margin: 5px 5px;
-    padding: 0.5rem 0.1rem;
-    width: 155px;
-    font-size: 1.1rem;
-    line-height: 1.5rem;
-    border: 1px solid whitesmoke;
-    border-radius: 450px;
-    font-family: 'Aoboshi One', serif;
+  cursor: pointer;
+  margin: 5px 5px;
+  padding: 0.5rem 0.1rem;
+  width: 155px;
+  font-size: 1.1rem;
+  line-height: 1.5rem;
+  border: 1px solid whitesmoke;
+  border-radius: 450px;
+  font-family: "Aoboshi One", serif;
 }
 
 .btn:hover {
-    color: whitesmoke;
-    background-color: transparent;
-    transition: 0.4s ease-in-out;
+  color: whitesmoke;
+  background-color: transparent;
+  transition: 0.4s ease-in-out;
 }
 
 .timer {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    font-size: 7.5rem;
-    user-select: none;
-    color: whitesmoke;
-    font-family: 'Aoboshi One', serif;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  font-size: 7.5rem;
+  user-select: none;
+  color: whitesmoke;
+  font-family: "Aoboshi One", serif;
 }
 
 .button-timer {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 #buttonPause {
-    display: none;
+  display: none;
 }
 
 #text {
-    display: flex;
-    justify-content: center;
-    padding-top: 30px;
-    font-size: 2.125rem;
-    font-family: 'Aoboshi One', serif;
-    color: whitesmoke;
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
+  font-size: 2.125rem;
+  font-family: "Aoboshi One", serif;
+  color: whitesmoke;
 }
 
 .active {
-    color: white;
-    border: 1px solid whitesmoke;
-    background-color: transparent;
-    transition: 0.4s;
+  color: white;
+  border: 1px solid whitesmoke;
+  background-color: transparent;
+  transition: 0.4s;
 }
 
-@media only screen and (max-width: 501px){
-    .container{
-        width: 100dvw;
-        height: 100dvh;
-    }
-    .buttons {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .btn {
-        margin-bottom: 10px;
-        font-size: 1rem;
-    }
-    .timer {
-        font-size: 5rem;
-    }
-    .button-timer{
-        align-items: center;
-    }
+.containerplay {
+  display: flex;
+  justify-content: center;
+  margin-top: 14px;
+  width: 100%;
+}
+
+.btns {
+	width: 30px;
+	height: 30px;
+}
+
+#playbtn {
+  cursor: pointer;
+	background: none;
+	border: none;
+}
+
+#pausebtn {
+	cursor: pointer;
+	background: none;
+	border: none;
+	display: none;
+}
+
+@media only screen and (max-width: 501px) {
+  .container {
+    width: 100dvw;
+    height: 100dvh;
+  }
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .btn {
+    margin-bottom: 10px;
+    font-size: 1rem;
+  }
+  .timer {
+    font-size: 5rem;
+  }
+  .button-timer {
+    align-items: center;
+  }
 }
