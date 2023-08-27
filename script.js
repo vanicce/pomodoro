@@ -48,9 +48,17 @@ if (!myClass) {
   })();
 }
 
+const playMusic = (() => {
+  let music = new Audio("sounds/fairyfountain.mp3");
+  music.play();
+  music.volume = 0.04;
+  music.loop = true;
+})();
+
 const playAudio = () => {
   let sound = new Audio("sounds/zeldasound.mp3");
   sound.play();
+  sound.volume = 0.3;
 };
 
 const setTimer = (mins, secs, timerText) => {
