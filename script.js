@@ -13,6 +13,9 @@ const pomodoroButton = document.querySelector("#pomodoro");
 const shortBrakeButton = document.querySelector("#shortBrake");
 const longBrakeButton = document.querySelector("#longBrake");
 
+const playBtn = document.querySelector("#playbtn");
+const pauseBtn = document.querySelector("#pausebtn")
+
 let countdownInterval;
 
 (async () => await Notification.requestPermission())();
@@ -27,6 +30,11 @@ const showNotification = () => {
 
 document.title = `${minutes}:${seconds} | ${text}`;
 
+const hiddenModal = localStorage.getItem("hidden");
+if (!hiddenModal) {
+  modal.classList.add("show");
+}
+
 const closeModal = () => {
   localStorage.setItem("hidden", "true");
   modal.classList.remove("show");
@@ -37,29 +45,31 @@ const closeModal = () => {
 
 closeModalButton.addEventListener("click", closeModal);
 
-const myClass = localStorage.getItem("hidden");
-if (!myClass) {
-  showModal = (() => {
-    modal.classList.add("show");
+let music = new Audio("sounds/fairyfountain.mp3");
 
-    window.onclick = () => {
-      closeModal();
-    };
-  })();
-}
-
-const playMusic = (() => {
-  let music = new Audio("sounds/fairyfountain.mp3");
+const playMusic = () => {
   music.play();
   music.volume = 0.04;
   music.loop = true;
-})();
+};
 
 const playAudio = () => {
   let sound = new Audio("sounds/zeldasound.mp3");
   sound.play();
   sound.volume = 0.3;
 };
+
+playBtn.addEventListener("click", () => {
+  playMusic();
+  pauseBtn.style.display = "block"
+  playBtn.style.display = "none"
+});
+
+pauseBtn.addEventListener("click", () => {
+  music.pause()
+  pauseBtn.style.display = "none"
+  playBtn.style.display = "block"
+})
 
 const setTimer = (mins, secs, timerText) => {
   clearInterval(countdownInterval);
