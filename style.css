@@ -1,7 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Aoboshi+One&display=swap");
 
 :root {
-	-webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: transparent;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
   background: linear-gradient(
     315deg,
     hsla(136, 85%, 74%, 1) 0%,
@@ -14,15 +23,6 @@
   );
   background-size: cover;
   background-repeat: no-repeat;
-}
-
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-.container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -143,22 +143,31 @@
   width: 100%;
 }
 
-.btns {
-	width: 30px;
-	height: 30px;
+.svg {
+  width: 30px;
+  height: 30px;
+}
+
+#btndots {
+  cursor: pointer;
+  background: none;
+  border: none;
+  align-self: center;
+  width: 42px;
+  height: 42px;
 }
 
 #playbtn {
   cursor: pointer;
-	background: none;
-	border: none;
+  background: none;
+  border: none;
 }
 
 #pausebtn {
-	cursor: pointer;
-	background: none;
-	border: none;
-	display: none;
+  cursor: pointer;
+  background: none;
+  border: none;
+  display: none;
 }
 
 @media only screen and (max-width: 501px) {
