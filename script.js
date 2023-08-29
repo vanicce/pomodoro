@@ -94,7 +94,6 @@ const setTimer = (mins, secs, timerText) => {
   longBrakeButton.classList.remove("active");
   buttonStart.classList.remove("active");
 
-  buttonStart.disabled = false;
   buttonPause.style.display = "none";
 };
 
@@ -164,6 +163,8 @@ const start = () => {
       countdownInterval = setInterval(() => {
         mins == 0 && secs == 0 ? endTimer() : initTimer();
       }, 1000);
+    } else {
+      window.alert('Select a Timer')
     }
   }
 };
