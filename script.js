@@ -1,6 +1,8 @@
 const modal = document.querySelector("#modal");
 const closeModalButton = document.querySelector("#closeModal");
 
+const textPomodoro = document.querySelector(".pomodoro-text")
+
 const minutes = document.querySelector("#minutes");
 const seconds = document.querySelector("#seconds");
 
@@ -32,6 +34,22 @@ const showNotification = () => {
     vibrate: [200, 100, 200],
   });
 };
+
+let horas = "00"
+let minutos = "00"
+
+setInterval( () => {
+  if (minutos >= 59) {
+    minutos = 0;
+    horas++;
+  } else {
+    minutos++;
+  }
+  minutos = minutos.toString().padStart(2, "0");
+  horas = horas.toString().padStart(2, "0");
+
+  textPomodoro.textContent = `you are in focus by: ${horas}:${minutos} `
+}, 1000 * 60)
 
 document.title = `${minutes}:${seconds} | ${text}`;
 

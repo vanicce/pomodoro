@@ -16,14 +16,16 @@
   --timer-color: whitesmoke;
   --text-color: black;
   --pomodoro-text: whitesmoke;
+  --hover-color: whitesmoke;
 }
 
 .pink-theme {
-  --background-color: #FFE4E4;
-  --button-color: #FFC9C9;
+  --background-color: #ffe4e4;
+  --button-color: #ffc9c9;
   --timer-color: #333333;
   --text-color: #333333;
   --pomodoro-text: #333333;
+  --hover-color: #333333;
 }
 
 * {
@@ -94,6 +96,17 @@
   background-color: hsl(0, 0%, 96%);
 }
 
+.pomodoro-text {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  font-size: 1.5rem;
+  user-select: none;
+  color: var(--timer-color);
+  font-family: "Aoboshi One", serif;
+  margin-bottom: 15px;
+}
+
 .btn {
   cursor: pointer;
   margin: 5px 5px;
@@ -109,7 +122,7 @@
 }
 
 .btn:hover {
-  color: var(--text-color);
+  color: var(--hover-color);
   background-color: transparent;
   transition: 0.4s ease-in-out;
 }
@@ -143,8 +156,8 @@
 }
 
 .active {
-  color: white;
-  border: 1px solid whitesmoke;
+  color: var(--text-color);
+  border: 1px solid var(--timer-color);
   background-color: transparent;
   transition: 0.4s;
 }
