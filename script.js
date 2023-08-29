@@ -17,6 +17,10 @@ const longBrakeButton = document.querySelector("#longBrake");
 const playBtn = document.querySelector("#playbtn");
 const pauseBtn = document.querySelector("#pausebtn");
 
+buttonDots.addEventListener("click", () => {
+  document.body.classList.toggle("pink-theme")
+})
+
 let countdownInterval = null;
 
 (async () => await Notification.requestPermission())();
