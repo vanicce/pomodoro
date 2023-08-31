@@ -1,11 +1,14 @@
 const modal = document.querySelector("#modal");
 const closeModalButton = document.querySelector("#closeModal");
 
+const textPomodoro = document.querySelector(".pomodoro-text");
+
 const minutes = document.querySelector("#minutes");
 const seconds = document.querySelector("#seconds");
 
 const buttonStart = document.querySelector("#buttonStart");
 const buttonPause = document.querySelector("#buttonPause");
+const buttonDots = document.querySelector("#btndots");
 
 const text = document.querySelector("#text");
 
@@ -13,10 +16,13 @@ const pomodoroButton = document.querySelector("#pomodoro");
 const shortBrakeButton = document.querySelector("#shortBrake");
 const longBrakeButton = document.querySelector("#longBrake");
 
-const playBtn = document.querySelector("#playbtn");
-const pauseBtn = document.querySelector("#pausebtn")
+let btnMusic = document.querySelector(".button");
 
-let countdownInterval;
+buttonDots.addEventListener("click", () => {
+  document.body.classList.toggle("pink-theme");
+});
+
+let countdownInterval = null;
 
 (async () => await Notification.requestPermission())();
 
@@ -28,7 +34,32 @@ const showNotification = () => {
   });
 };
 
+let horas = "00";
+let minutos = "00";
+
+setInterval(() => {
+  if (countdownInterval != null) {
+    if (minutos >= 59) {
+      minutos = 0;
+      horas++;
+    } else {
+      minutos++;
+    }
+    minutos = minutos.toString().padStart(2, "0");
+    horas = horas.toString().padStart(2, "0");
+
+    textPomodoro.textContent = `you are in focus by: ${horas}:${minutos} `;
+  }
+}, 1000 * 60);
+
 document.title = `${minutes}:${seconds} | ${text}`;
+
+const formatTitle = (mins, secs, text) => {
+  text = text.textContent;
+  mins = minutes.textContent;
+  secs = seconds.textContent;
+  document.title = `${mins}:${secs} | ${text}`;
+};
 
 const hiddenModal = localStorage.getItem("hidden");
 if (!hiddenModal) {
@@ -59,33 +90,27 @@ const playAudio = () => {
   sound.volume = 0.3;
 };
 
-playBtn.addEventListener("click", () => {
-  playMusic();
-  pauseBtn.style.display = "block"
-  playBtn.style.display = "none"
-});
+btnMusic.addEventListener("click", () => {
+  btnMusic.classList.toggle("paused");
 
-pauseBtn.addEventListener("click", () => {
-  music.pause()
-  pauseBtn.style.display = "none"
-  playBtn.style.display = "block"
-})
+  btnMusic.classList.contains("paused") ? playMusic() : music.pause();
+});
 
 const setTimer = (mins, secs, timerText) => {
   clearInterval(countdownInterval);
+  countdownInterval = null;
 
   minutes.textContent = mins;
   seconds.textContent = secs;
   text.textContent = timerText;
 
-  document.title = `${mins}:${secs} | ${timerText}`;
+  formatTitle(mins, secs, text);
 
   pomodoroButton.classList.remove("active");
   shortBrakeButton.classList.remove("active");
   longBrakeButton.classList.remove("active");
   buttonStart.classList.remove("active");
 
-  buttonStart.disabled = false;
   buttonPause.style.display = "none";
 };
 
@@ -110,55 +135,64 @@ const longBrake = () => {
 
 longBrakeButton.addEventListener("click", longBrake);
 
+const formatTime = (mins, secs) => {
+  seconds.textContent = secs.toString().padStart(2, "0");
+  minutes.textContent = mins.toString().padStart(2, "0");
+};
+
 const initTimer = () => {
-  if (secs === 0) {
+  if (secs == 0) {
     secs = 59;
     mins--;
   } else {
     secs--;
   }
 
-  seconds.textContent = secs.toString().padStart(2, "0");
-  minutes.textContent = mins.toString().padStart(2, "0");
+  formatTime(mins, secs);
 
-  document.title = `${minutes.textContent}:${seconds.textContent} | ${text.textContent}`;
+  formatTitle(mins, secs, text);
 };
 
 const endTimer = () => {
   clearInterval(countdownInterval);
   playAudio();
   showNotification();
+
   buttonPause.style.display = "none";
   buttonStart.classList.remove("active");
+  countdownInterval = null;
 
   text.textContent = "Your Timer is Done!";
-
-  document.title = `${minutes.textContent}:${seconds.textContent} | ${text.textContent}`;
 };
 
 const start = () => {
-  playAudio();
+  if (countdownInterval === null) {
+    mins = minutes.textContent;
+    secs = seconds.textContent;
 
-  buttonPause.style.display = "block";
-  buttonPause.classList.remove("active");
-  buttonStart.classList.add("active");
-  buttonStart.disabled = true;
+    if (mins > 0 || secs > 0) {
+      playAudio();
 
-  mins = parseInt(minutes.textContent);
-  secs = parseInt(seconds.textContent);
+      buttonPause.style.display = "block";
+      buttonPause.classList.remove("active");
+      buttonStart.classList.add("active");
 
-  countdownInterval = setInterval(() => {
-    mins === 0 && secs === 0 ? endTimer() : initTimer();
-  }, 1000);
+      countdownInterval = setInterval(() => {
+        mins == 0 && secs == 0 ? endTimer() : initTimer();
+      }, 1000);
+    } else {
+      window.alert("Select a Timer");
+    }
+  }
 };
 
 buttonStart.addEventListener("click", start);
 
 const pause = () => {
   clearInterval(countdownInterval);
+  countdownInterval = null;
   buttonPause.classList.add("active");
   buttonStart.classList.remove("active");
-  buttonStart.disabled = false;
 };
 
 buttonPause.addEventListener("click", pause);
