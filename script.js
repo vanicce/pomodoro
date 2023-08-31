@@ -122,7 +122,7 @@ const setTimer = (mins, secs, timerText) => {
 pomodoroButton.addEventListener("click", pomodoro);
 
 const shortBrake = () => {
-  setTimer("00", "05", "Time for a Brake!");
+  setTimer("05", "00", "Time for a Brake!");
   shortBrakeButton.classList.add("active");
 };
 
