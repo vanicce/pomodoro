@@ -1,7 +1,7 @@
 const modal = document.querySelector("#modal");
 const closeModalButton = document.querySelector("#closeModal");
 
-const textPomodoro = document.querySelector(".pomodoro-text")
+const textPomodoro = document.querySelector(".pomodoro-text");
 
 const minutes = document.querySelector("#minutes");
 const seconds = document.querySelector("#seconds");
@@ -16,12 +16,11 @@ const pomodoroButton = document.querySelector("#pomodoro");
 const shortBrakeButton = document.querySelector("#shortBrake");
 const longBrakeButton = document.querySelector("#longBrake");
 
-const playBtn = document.querySelector("#playbtn");
-const pauseBtn = document.querySelector("#pausebtn");
+let btnMusic = document.querySelector(".button");
 
 buttonDots.addEventListener("click", () => {
-  document.body.classList.toggle("pink-theme")
-})
+  document.body.classList.toggle("pink-theme");
+});
 
 let countdownInterval = null;
 
@@ -35,21 +34,23 @@ const showNotification = () => {
   });
 };
 
-let horas = "00"
-let minutos = "00"
+let horas = "00";
+let minutos = "00";
 
-setInterval( () => {
-  if (minutos >= 59) {
-    minutos = 0;
-    horas++;
-  } else {
-    minutos++;
+setInterval(() => {
+  if (countdownInterval != null) {
+    if (minutos >= 59) {
+      minutos = 0;
+      horas++;
+    } else {
+      minutos++;
+    }
+    minutos = minutos.toString().padStart(2, "0");
+    horas = horas.toString().padStart(2, "0");
+
+    textPomodoro.textContent = `you are in focus by: ${horas}:${minutos} `;
   }
-  minutos = minutos.toString().padStart(2, "0");
-  horas = horas.toString().padStart(2, "0");
-
-  textPomodoro.textContent = `you are in focus by: ${horas}:${minutos} `
-}, 1000 * 60)
+}, 1000 * 60);
 
 document.title = `${minutes}:${seconds} | ${text}`;
 
@@ -89,16 +90,10 @@ const playAudio = () => {
   sound.volume = 0.3;
 };
 
-playBtn.addEventListener("click", () => {
-  playMusic();
-  pauseBtn.style.display = "block";
-  playBtn.style.display = "none";
-});
+btnMusic.addEventListener("click", () => {
+  btnMusic.classList.toggle("paused");
 
-pauseBtn.addEventListener("click", () => {
-  music.pause();
-  pauseBtn.style.display = "none";
-  playBtn.style.display = "block";
+  btnMusic.classList.contains("paused") ? playMusic() : music.pause();
 });
 
 const setTimer = (mins, secs, timerText) => {
@@ -186,7 +181,7 @@ const start = () => {
         mins == 0 && secs == 0 ? endTimer() : initTimer();
       }, 1000);
     } else {
-      window.alert('Select a Timer')
+      window.alert("Select a Timer");
     }
   }
 };
