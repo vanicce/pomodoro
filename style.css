@@ -182,8 +182,8 @@
 }
 
 .dot {
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
   background-color: var(--pomodoro-text);
   border-radius: 50%;
 }
@@ -202,6 +202,10 @@
 .button.paused {
   border-style: double;
   border-width: 0px 0px 0px 25px;
+}
+
+.button:hover {
+  transform: scale(1.1);
 }
 
 @media only screen and (max-width: 501px) {
@@ -223,5 +227,13 @@
   }
   .button-timer {
     align-items: center;
+    flex-direction: column;
+  }
+  #btndots {
+    height: 40px;
+  }
+  .dots {
+    width: 10px;
+    height: 10px;
   }
 }

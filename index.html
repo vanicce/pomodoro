@@ -11,6 +11,7 @@
       name="description"
       content="Um contador pomodoro simples, bonito e funcional."
     />
+    <meta name="keywords" content="pomodoro, pomodoro online, lucas pomodoro" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -38,24 +39,7 @@
 
   <body>
     <main class="container">
-      <div id="modal">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h3>What is the Pomodoro Technique?</h3>
-            <button>
-              <img src="imgs/xx.png" alt="close modal" id="closeModal" />
-            </button>
-          </div>
-          <p>
-            The Pomodoro Technique was developed in the late 1980s by then
-            university student Francesco Cirillo. Cirillo was struggling to
-            focus on his studies and complete assignments. Feeling overwhelmed,
-            he asked himself to commit to just 10 minutes of focused study time.
-            Encouraged by the challenge, he found a tomato (pomodoro in Italian)
-            shaped kitchen timer, and the Pomodoro technique was born.
-          </p>
-        </div>
-      </div>
+      <div id="modal"></div>
       <div class="pomodoro">
         <p class="pomodoro-text"></p>
         <div class="buttons">
@@ -85,6 +69,10 @@
         </div>
       </div>
     </main>
-    <script src="script.js"></script>
+    <script type="module">
+      import { App } from "./src/App.js";
+
+      App.start();
+    </script>
   </body>
 </html>
