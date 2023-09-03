@@ -1,6 +1,8 @@
 const TextPomodoro = {
   render() {
-    const pomodoroText = document.querySelector(".pomodoro-text");
+    const pomodoro = document.querySelector(".pomodoro");
+    const pomodoroText = document.createElement("p");
+    pomodoroText.classList.add("pomodoro-text");
 
     let horas = "00";
     let minutos = "00";
@@ -17,8 +19,10 @@ const TextPomodoro = {
       horas = horas.toString().padStart(2, "0");
 
       pomodoroText.innerHTML = `
-            you are in focus by: ${horas}:${minutos}
-        `;
+        you are in focus by: ${horas}:${minutos}
+      `;
+
+      pomodoro.prepend(pomodoroText);
     }, 1000 * 60);
   },
 };
