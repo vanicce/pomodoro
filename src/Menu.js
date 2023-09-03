@@ -9,7 +9,7 @@ const Menu = {
       <div class="menu-header">
       <p>Themes:</p>
         <button id="close-menu">
-          <img src="../imgs/xx.png">
+          <div class="close"> </div>
         </button>
       </div>
       <div class="menu-body">
