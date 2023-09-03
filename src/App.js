@@ -2,6 +2,7 @@ import { Timer } from "./Timer.js";
 import { Buttons } from "./Buttons.js";
 import { Modal } from "./Modal.js";
 import { TextPomodoro } from "./TextPomodoro.js";
+import { Menu } from "./Menu.js";
 
 const App = {
   async start() {

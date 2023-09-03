@@ -2,6 +2,9 @@
 
 :root {
   -webkit-tap-highlight-color: transparent;
+}
+
+.green-theme {
   --background-color: linear-gradient(
     315deg,
     hsla(136, 85%, 74%, 1) 0%,
@@ -208,6 +211,54 @@
   transform: scale(1.1);
 }
 
+.menu {
+  color: aliceblue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 50;
+  left: 50;
+  /* min-width: 80%;
+  min-height: 50%; */
+  width: 50%;
+  height: 100%;
+  font-family: "Aoboshi One", serif;
+}
+
+.menu-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.menu-header button img {
+  height: 25px;
+  width: 25px;
+}
+
+.menu button {
+  color: whitesmoke;
+  cursor: pointer;
+  font-family: "Aoboshi One", serif;
+  background: transparent;
+  border: none;
+}
+
+.menu img {
+  height: 80%;
+  width: 80%;
+  object-fit: contain;
+}
+
+.menu-content {
+  margin: 15% auto;
+  padding: 20px;
+  width: 100%;
+  border: 1px solid #888;
+  border-radius: 15px;
+  background-color: #333333;
+}
+
 @media only screen and (max-width: 501px) {
   .container {
     width: 100dvw;
@@ -231,9 +282,14 @@
   }
   #btndots {
     height: 40px;
+    flex-direction: row;
   }
   .dots {
     width: 10px;
     height: 10px;
+  }
+  .menu {
+    width: 95%;
+    height: 100%;
   }
 }

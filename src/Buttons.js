@@ -1,5 +1,6 @@
 import { Timer } from "./Timer.js";
 import { Music } from "./Music.js";
+import { Menu } from "./Menu.js";
 
 const Buttons = {
   buttonStart: document.querySelector("#buttonStart"),
@@ -14,6 +15,10 @@ const Buttons = {
 
   toggleTheme() {
     document.body.classList.toggle("pink-theme");
+  },
+
+  showMenu() {
+    Menu.render();
   },
 
   clickMusic() {
@@ -49,7 +54,7 @@ const Buttons = {
   },
 
   addEventListeners() {
-    this.buttonDots.addEventListener("click", this.toggleTheme.bind(this));
+    this.buttonDots.addEventListener("click", this.showMenu.bind(this));
     this.btnMusic.addEventListener("click", this.clickMusic.bind(this));
     this.buttonStart.addEventListener("click", this.start.bind(this));
     this.buttonPause.addEventListener("click", this.pause.bind(this));
