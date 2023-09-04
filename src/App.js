@@ -2,7 +2,7 @@ import { Timer } from "./Timer.js";
 import { Buttons } from "./Buttons.js";
 import { Modal } from "./Modal.js";
 import { TextPomodoro } from "./TextPomodoro.js";
-import { Menu } from "./Menu.js";
+import { Notifications } from "./Notifications.js";
 
 const App = {
   async start() {
@@ -10,6 +10,7 @@ const App = {
       Timer.setTimer(),
       Buttons.addEventListeners(),
       TextPomodoro.render();
+      Notifications.requestPermission()
   },
 };
 
