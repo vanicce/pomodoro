@@ -7,7 +7,7 @@ const Modal = {
       <div class="modal-header">
         <h3>What is the Pomodoro Technique?</h3>
         <button>
-          <img src="imgs/xx.png" alt="close modal" id="closeModal" />
+          <img src="src/imgs/xx.png" alt="close modal" id="closeModal" />
         </button>
       </div>
       <p>

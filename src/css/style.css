@@ -259,6 +259,29 @@
   background-color: #333333;
 }
 
+.close {
+  width: 25px;
+  height: 25px;
+  position: relative;
+}
+.close:after {
+  content: "";
+  height: 25px;
+  border-left: 2px solid #fff;
+  position: absolute;
+  transform: rotate(45deg);
+  left: 10px;
+}
+
+.close:before {
+  content: "";
+  height: 25px;
+  border-left: 2px solid #fff;
+  position: absolute;
+  transform: rotate(-45deg);
+  left: 10px;
+}
+
 @media only screen and (max-width: 501px) {
   .container {
     width: 100dvw;

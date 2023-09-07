@@ -9,12 +9,12 @@ const Menu = {
       <div class="menu-header">
       <p>Themes:</p>
         <button id="close-menu">
-          <img src="../imgs/xx.png">
+          <div class="close"> </div>
         </button>
       </div>
       <div class="menu-body">
-        <button id="pink-theme"> <p> Pink Theme:</p> <img src="../imgs/img-pink.png"></button>
-        <button id="green-theme"> <p> Green Theme:</p> <img src="../imgs/img-project.png"></button>
+        <button id="pink-theme"> <p> Pink Theme:</p> <img src="../src/imgs/img-pink.png"></button>
+        <button id="green-theme"> <p> Green Theme:</p> <img src="../src/imgs/img-project.png"></button>
       </div>
     </div>
     `;
