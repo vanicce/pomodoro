@@ -1,6 +1,6 @@
 const Music = {
-  music: new Audio("../sounds/fairyfountain.mp3"),
-  sound: new Audio("../sounds/zeldasound.mp3"),
+  music: new Audio("../src/sounds/fairyfountain.mp3"),
+  sound: new Audio("../src/sounds/zeldasound.mp3"),
 
   playMusic: () => {
     Music.music.play();
