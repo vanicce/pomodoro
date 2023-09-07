@@ -1,5 +1,5 @@
 const Notifications = {
-  test: async () => {
+  requestPermission: async () => {
     await Notification.requestPermission();
   },
 
