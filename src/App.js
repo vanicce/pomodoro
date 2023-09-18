@@ -10,7 +10,9 @@ const App = {
       Timer.setTimer(),
       Buttons.addEventListeners(),
       TextPomodoro.render();
-      Notifications.requestPermission()
+      if (Notification.permission !== 'granted') {
+        Notifications.requestPermission();
+      }
   },
 };
 
