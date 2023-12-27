@@ -217,13 +217,8 @@
   align-items: center;
   justify-content: center;
   position: fixed;
-  top: 50;
-  left: 50;
-  /* min-width: 80%;
-  min-height: 50%; */
-  width: 50%;
-  height: 100%;
   font-family: "Aoboshi One", serif;
+  width: 35%;
 }
 
 .menu-header {
@@ -254,9 +249,10 @@
   margin: 15% auto;
   padding: 20px;
   width: 100%;
-  border: 1px solid #888;
+  border: 1px solid whitesmoke;
   border-radius: 15px;
-  background-color: #333333;
+  background-color: transparent;
+  backdrop-filter: blur(10px);
 }
 
 .close {
@@ -282,7 +278,7 @@
   left: 10px;
 }
 
-@media only screen and (max-width: 501px) {
+@media only screen and (max-width: 425px) {
   .container {
     width: 100dvw;
     height: 100dvh;
@@ -314,5 +310,17 @@
   .menu {
     width: 95%;
     height: 100%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .menu {
+    width: 50%;
+  }
+}
+
+@media only screen and (min-width: 1280px){
+  .menu {
+    width: 30%;
   }
 }
