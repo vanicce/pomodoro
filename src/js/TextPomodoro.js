@@ -19,7 +19,7 @@ const TextPomodoro = {
       horas = horas.toString().padStart(2, "0");
 
       pomodoroText.innerHTML = `
-        you are in focus by: ${horas}:${minutos}
+        you are in focus for: ${horas}:${minutos}
       `;
 
       pomodoro.prepend(pomodoroText);
