@@ -239,6 +239,11 @@
   border: none;
 }
 
+.menu button p {
+  font-size: large;
+
+}
+
 .menu img {
   height: 80%;
   width: 80%;
@@ -252,7 +257,7 @@
   border: 1px solid whitesmoke;
   border-radius: 15px;
   background-color: transparent;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(20px);
 }
 
 .close {
