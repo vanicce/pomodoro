@@ -8,4 +8,4 @@ Conhecimentos Utilizados: Programação Funcional, Manipulação de DOM, Manipul
 
 Link do projeto: https://lucas-pomodoro.vercel.app/
 
-Imagem do projeto: ![image](https://github.com/lucwx/pomodoro/blob/master/src/imgs/img-project.png)
+Imagem do projeto: ![image](https://raw.githubusercontent.com/lucwx/web-screenshot/main/lucas-pomodoro.vercel.app/lucas-pomodoro.vercel.app_desktop.jpeg)
